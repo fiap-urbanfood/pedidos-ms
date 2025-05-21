@@ -1,28 +1,21 @@
+from typing import Optional
 from datetime import datetime
-from typing import List, Optional
+
 from pydantic import BaseModel as SCBaseModel
 
-class PedidoBase(SCBaseModel):
-    checkout_id: int
 
-class PedidoCreate(PedidoBase):
-    pass
+class CheckoutSchema(SCBaseModel):
+    id: Optional[int]
+    status: bool
+    #data_criacao: datetime
 
-class PedidoResponse(PedidoBase):
-    id: int
-    
     class Config:
         orm_mode = True
 
-class CheckoutBase(SCBaseModel):
-    status: bool = False
 
-class CheckoutCreate(CheckoutBase):
-    pass
-
-class CheckoutResponse(CheckoutBase):
-    id: int
-    data_criacao: datetime
+class PedidoSchema(SCBaseModel):
+    id: Optional[int]
+    checkout_id: int
 
     class Config:
         orm_mode = True

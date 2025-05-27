@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: service-pedidos
+  namespace: urbanfood
+  labels:
+    app: app-pedidos
+spec:
+  ports:
+  - name: service-pedidos-http
+    port: 8002
+    protocol: TCP
+    targetPort: 8002
+  selector:
+    app: app-pedidos
+  type: LoadBalancer

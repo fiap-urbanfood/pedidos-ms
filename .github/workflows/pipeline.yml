@@ -51,7 +51,7 @@ jobs:
         env:
           IMAGE_RELEASE: ${{ steps.increment-git-tag.outputs.git-tag }}
           ECR_REGISTRY:  ${{ steps.login-ecr.outputs.registry }}
-          ECR_REPOSITORY: urbanfood/login
+          ECR_REPOSITORY: urbanfood/pedidos
           IMAGE_TAG: latest
         run: |
           docker build --no-cache --progress=plain -f devops/Dockerfile -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_RELEASE .

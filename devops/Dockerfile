@@ -58,7 +58,7 @@ RUN pip3 install --upgrade pip --user
 RUN pip3 install -r requirements.txt
 
 # Sobe o backend
-EXPOSE 8001
+EXPOSE 8002
 STOPSIGNAL SIGINT
 ENTRYPOINT ["python", "main.py"]
 CMD ["python", "criar_tabelas.py"]
